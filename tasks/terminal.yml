@@ -33,11 +33,6 @@
     name: powerline-status
     extra_args: --user
 
-- name: Install powerline fonts
-  dnf:
-    name: powerline-fonts
-    state: latest
-
 - name: Ensure fonts are loaded
   command: fc-cache -vf {{ user_home }}/.local/share/fonts/
 
