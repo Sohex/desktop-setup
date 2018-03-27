@@ -1,22 +1,22 @@
 ---
-- name: Get Oh My Fish installer
-  get_url:
-    url: https://get.oh-my.fish
-    dest: '{{ user_home }}/install'
-    mode: 0755
+#- name: Get Oh My Fish installer
+#  get_url:
+#    url: https://get.oh-my.fish
+#    dest: '{{ user_home }}/install'
+#    mode: 0755
 
-- name: Install Oh My Fish
-  raw: fish /home/cfutro/install --path=/home/cfutro/.local/share/omf --config=/home/cfutro/.config/omf
+#- name: Install Oh My Fish
+#  raw: fish /home/cfutro/install --path=/home/cfutro/.local/share/omf --config=/home/cfutro/.config/omf
 
-- name: Install agnoster theme
-  shell: omf install agnoster
-  args:
-    executable: /usr/bin/fish
+#- name: Install agnoster theme
+#  shell: omf install agnoster
+#  args:
+#    executable: /usr/bin/fish
 
-- name: Apply agnoster theme
-  shell: omf theme agnoster
-  args:
-    executable: /usr/bin/fish
+#- name: Apply agnoster theme
+#  shell: omf theme agnoster
+#  args:
+#    executable: /usr/bin/fish
 
 - name: Install powerline dependencies
   pip:
