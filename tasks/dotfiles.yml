@@ -38,6 +38,12 @@
     dest: '{{ user_home }}/.config/fish/config.fish'
     state: link
 
+- name: Create directory I already made
+  file:
+    dest:
+      - '{{ user_home }}/.config/i3'
+    state: directory
+
 - name: Link i3 config
   file:
     src: '{{ dotfiles_dir }}/i3/config'
