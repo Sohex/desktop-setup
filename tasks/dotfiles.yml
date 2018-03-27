@@ -49,7 +49,7 @@
     state: link
 
 - name: Copy polybar launcher
-  file:
+  copy:
     src: '{{ dotfiles_dir }}/polybar/launch.sh'
     dest: '{{ user_home }}/.config/polybar/launch.sh'
     mode: 0755
