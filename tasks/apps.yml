@@ -1,7 +1,16 @@
 ---
-- name: Install System Applications
+- name: Install system applications and dependencies
   dnf:
     name:
+      - '@development-tools'
+      - cairo 
+      - libxcb 
+      - xcb-proto
+      - xcb-util-image
+      - xcb-util-wm
+      - xcb-util-xrm
+      - xcb-util-cursor
+      - jsoncpp
       - socat
       - tilix
       - fish

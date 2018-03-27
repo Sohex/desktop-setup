@@ -41,3 +41,29 @@
 
 - name: Ensure fonts are loaded
   command: fc-cache -vf {{ user_home }}/.local/share/fonts/
+
+- name: Create source dir for polybar install
+  file:
+    dest: '{{ user_home }}'/src/polybar
+    state: directory
+
+- name: Pull polybar source
+  git:
+        repo: https://github.com/jaagr/polybar
+        dest: '{{ user_home }}'/src/polybar
+        version: 3.1.0
+
+- name: Make polybar build dir
+  file:
+    dest: '{{ user_home }}'/src/polybar/build
+
+- name: Build polybar
+  shell: cmake ..
+  args:
+    chdir: '{{ user_home }}'/src/polybar/build
+
+- name: Install polybar
+  shell: make install
+  args:
+    chdir: '{{ user_home }}'/src/polybar/build
+  become: yes
