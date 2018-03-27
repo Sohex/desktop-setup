@@ -16,13 +16,11 @@
     dest: '{{ user_home }}/.xinitrc'
     state: link
 
-- name: Ensure config directories exist
-  file:
-    path:
-      - '{{ user_home }}/.config/fish/conf.d'
-      - '{{ user_home }}/.config/i3'
-      - '{{ user_home }}/.config/polybar'
-    state: directory
+- name: Make i3 dir
+  shell: mkdir -p {{ user_home }}/.config/i3
+
+- name: Make polybar dir
+  shell: mkdir -p {{ user_home }}/.config/polybar
 
 - name: Ensure configs don't already exist
   file:
