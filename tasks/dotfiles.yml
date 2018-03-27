@@ -18,7 +18,7 @@
 
 - name: Ensure config directories exist
   file:
-    dest:
+    path:
       - '{{ user_home }}/.config/fish/conf.d'
       - '{{ user_home }}/.config/i3'
       - '{{ user_home }}/.config/polybar'
@@ -37,12 +37,6 @@
     src: '{{ dotfiles_dir }}/fish/config.fish'
     dest: '{{ user_home }}/.config/fish/config.fish'
     state: link
-
-- name: Create directory I already made
-  file:
-    dest:
-      - '{{ user_home }}/.config/i3'
-    state: directory
 
 - name: Link i3 config
   file:
