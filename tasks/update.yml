@@ -1,5 +1,0 @@
----
-- name: Update all packages to latest
-  dnf:
-    name: "*"
-    state: latest

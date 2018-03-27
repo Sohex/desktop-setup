@@ -8,7 +8,6 @@
     - vars.yml
 
   tasks:
-    - include: tasks/update.yml
     - include: tasks/apps.yml
     - include: tasks/desktop.yml
 
