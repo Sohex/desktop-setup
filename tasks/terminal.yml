@@ -6,7 +6,7 @@
     mode: 0755
 
 - name: Install Oh My Fish
-  shell: './install --path={{ user_home }}/.local/share/omf --config={{ user_home }}/.config/omf'
+  shell: ./install --path=~/.local/share/omf --config=~/.config/omf
   args:
     chdir: '{{ user_home }}'
     executable: /usr/bin/fish
