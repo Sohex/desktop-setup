@@ -37,4 +37,5 @@
       - powerline-fonts
       - cmake
       - gcc-c++
+      - cairo-devel
     state: latest
