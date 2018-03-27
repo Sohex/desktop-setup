@@ -1,9 +1,9 @@
 ---
-#- name: Get Oh My Fish installer
-#  get_url:
-#    url: https://get.oh-my.fish
-#    dest: '{{ user_home }}/install'
-#    mode: 0755
+- name: Get Oh My Fish installer
+  get_url:
+    url: https://get.oh-my.fish
+    dest: '{{ user_home }}/install'
+    mode: 0755
 
 #- name: Install Oh My Fish
 #  raw: fish /home/cfutro/install --path=/home/cfutro/.local/share/omf --config=/home/cfutro/.config/omf
@@ -32,6 +32,16 @@
   pip:
     name: powerline-status
     extra_args: --user
+
+- name: Pull powerline fonts
+  git:
+    repo: https://github.com/powerline/fonts.git
+    dest: '{{ user_home }}/fonts'
+    depth: 1
+
+- name: Install powerline fonts
+  shell: ./install.sh
+  chdir: '{{ user_home }}/fonts'
 
 - name: Ensure fonts are loaded
   command: fc-cache -vf {{ user_home }}/.local/share/fonts/

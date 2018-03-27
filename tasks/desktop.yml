@@ -10,13 +10,8 @@
       - i3lock
       - i3status
       - rofi
+      - dmenu
     state: latest
-
-- name: Link rofi to dmenu
-  file:
-    src: '/usr/bin/rofi'
-    dest: '/usr/bin/dmenu'
-    state: link
 
 - name: Check if polybar is installed
   stat:

@@ -41,4 +41,5 @@
       - xcb-util-wm-devel
       - xcb-util-devel
       - xcb-util-image-devel
+      - util-linux-user
     state: latest
