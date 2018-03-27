@@ -1,13 +1,15 @@
 ---
 - name: Get Oh My Fish installer
-  shell: curl -L https://get.oh-my.fish > install
-  args:
-    chdir: '{{ user_home }}'
+  get_url:
+    url: https://get.oh-my.fish
+    dest: '{{ user_home }}/install'
+    mode: 0755
 
 - name: Install Oh My Fish
-  shell: fish install --path={{ user_home }}/.local/share/omf --config={{ user_home }}/.config/omf
+  shell: ./install --path=/home/conorf/.local/share/omf --config=/home/conorf/.config/omf
   args:
     chdir: '{{ user_home }}'
+    executable: /usr/bin/fish
 
 - name: Install agnoster theme
   shell: omf install agnoster
