@@ -32,4 +32,6 @@
       - keepassxc
       - libselinux-python
       - redhat-rpm-config
+      - python2-devel
+      - python3-devel
     state: latest
