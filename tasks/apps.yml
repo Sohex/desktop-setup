@@ -30,4 +30,5 @@
       - firefox
       - htop
       - keepassxc
+      - libselinux-python
     state: latest
