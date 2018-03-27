@@ -22,7 +22,7 @@
   pip:
     name:
       - psutil
-      - hglib
+      - python-hglib
       - bzr
       - pyuv
       - i3ipc
