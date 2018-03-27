@@ -38,4 +38,7 @@
       - cmake
       - gcc-c++
       - cairo-devel
+      - xcb-util-wm-devel
+      - xcb-util-devel
+      - xcb-util-image-devel
     state: latest
