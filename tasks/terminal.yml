@@ -6,10 +6,9 @@
     mode: 0755
 
 - name: Install Oh My Fish
-  shell: ./install --path=~/.local/share/omf --config=~/.config/omf
+  raw: fish install --path=~/.local/share/omf --config=~/.config/omf
   args:
     chdir: '{{ user_home }}'
-    executable: /usr/bin/fish
 
 - name: Install agnoster theme
   shell: omf install agnoster
