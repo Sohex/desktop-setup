@@ -35,4 +35,5 @@
       - python2-devel
       - python3-devel
       - powerline-fonts
+      - cmake
     state: latest
