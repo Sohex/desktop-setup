@@ -1,4 +1,4 @@
 ---
 user_home: /home/cfutro
 dotfiles_dir: /home/cfutro/dotfiles
-dotfiles_repo: git@github.com:Sohex/dotfiles.git
+dotfiles_repo: https://github.com/Sohex/dotfiles.git 
