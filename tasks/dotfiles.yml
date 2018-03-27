@@ -14,6 +14,7 @@
   file:
     src: '{{ dotfiles_dir }}/xinitrc'
     dest: '{{ user_home }}/.xinitrc'
+    state: link
 
 - name: Ensure config directories exist
   file:
