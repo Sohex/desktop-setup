@@ -1,6 +1,7 @@
 ---
 - name: Enable repo for i3-gaps and rofi
-  command: dnf -y copr enable grepw/i3desktop
+  command: dnf -y copr enable gregw/i3desktop
+
 
 - name: Install i3 applications
   dnf:
