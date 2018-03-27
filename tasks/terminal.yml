@@ -1,0 +1,43 @@
+---
+- name: Get Oh My Fish installer
+  shell: curl -L https://get.oh-my.fish > install
+  args:
+    chdir: '{{ user_home }}'
+
+- name: Install Oh My Fish
+  shell: fish install --path={{ user_home }}/.local/share/omf --config={{ user_home }}/.config/omf
+  args:
+    chdir: '{{ user_home }}'
+
+- name: Install agnoster theme
+  shell: omf install agnoster
+  args:
+    executable: /usr/bin/fish
+
+- name: Apply agnoster theme
+  shell: omf theme agnoster
+  args:
+    executable: /usr/bin/fish
+
+- name: Install powerline dependencies
+  pip:
+    name:
+      - psutil
+      - hglib
+      - bzr
+      - pyuv
+      - i3ipc
+    extra_args: --user
+
+- name: Install powerline
+  pip:
+    name: powerline-status
+    extra_args: --user
+
+- name: Install powerline fonts
+  dnf:
+    name: powerline-fonts
+    state: latest
+
+- name: Ensure fonts are loaded
+  command: fc-cache -vf {{ user_home }}/.local/share/fonts/

@@ -1,0 +1,18 @@
+---
+- name: Enable repo for i3-gaps and rofi
+    command: dnf copr enable grepw/i3desktop
+
+- name: Install i3 applications
+  dnf:
+    name:
+      - i3-gaps
+      - i3lock
+      - i3status
+      - rofi
+    state: latest
+
+- name: Link rofi to dmenu
+    file:
+      src: '/usr/bin/rofi'
+      dest: '/usr/bin/dmenu'
+      state: link

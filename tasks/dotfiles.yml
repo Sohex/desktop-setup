@@ -1,0 +1,55 @@
+---
+- name: Get dotfiles
+  git:
+    repo: '{{ dotfiles_repo }}'
+    dest: '{{ dotfiles_dir }}'
+
+- name: Link Xresources
+  file:
+    src: '{{ dotfiles_dir }}'/Xresources
+    dest: '{{ user_home }}'/.Xresources
+    state: link
+
+- name: Link xinitrc
+  file:
+    src: '{{ dotfiles_dir }}'/xinitrc
+    dest: '{{ user_home }}'/.xinitrc
+
+- name: Ensure config directories exist
+  file:
+    dest:
+      - '{{ user_home }}'/.config/fish/conf.d
+      - '{{ user_home }}'/.config/i3
+      - '{{ user_home }}'/.config/polybar
+    state: directory
+
+- name: Ensure configs don't already exist
+  file:
+    dest:
+      - '{{ user_home }}'/.config/fish/config.fish
+      - '{{ user_home }}'/.config/i3/config
+      - '{{ user_home }}'/.config/polybar/config
+    state: absent
+
+- name: Link fish config
+  file:
+    src: '{{ dotfiles_dir }}'/fish/config.fish
+    dest: '{{ user_home }}'/.config/fish/config.fish
+    state: link
+
+- name: Link i3 config
+  file:
+    src: '{{ dotfiles_dir }}'/i3/config
+    dest: '{{ user_home }}'/.config/i3/config
+    state: link
+
+- name: Link polybar config
+  file:
+    src: '{{ dotfiles_dir }}'/polybar/config
+    dest: '{{ user_home }}'/.config/polybar/config
+
+- name: Copy polybar launcher
+  file:
+    src: '{{ dotfiles_dir }}'/polybar/launch.sh
+    dest: '{{ user_home }}'/.config/polybar/launch.sh
+    mode: 0755

@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  user: cfutro
+  become: yes
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - include: tasks/update.yml
+    - include: tasks/apps.yml
+    - include: tasks/desktop.yml
+
+- hosts: localhost
+  connection: local
+  become: no
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - include: tasks/terminal.yml
+    - include: tasks/dotfiles.yml

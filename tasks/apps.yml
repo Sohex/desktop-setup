@@ -1,0 +1,23 @@
+---
+- name: Install System Applications
+  dnf:
+    name:
+      - socat
+      - tilix
+      - fish
+      - thunderbird
+      - conky
+      - python3
+      - xrandr
+      - arandr
+      - java-1.8.0-openjdk
+      - lynx
+      - p7zip
+      - pavucontrol
+      - vim-enhanced
+      - zathura
+      - zathura-pdf-poppler
+      - firefox
+      - htop
+      - keepassxc
+    state: latest
