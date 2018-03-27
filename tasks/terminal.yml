@@ -6,9 +6,7 @@
     mode: 0755
 
 - name: Install Oh My Fish
-  raw: fish install --path=~/.local/share/omf --config=~/.config/omf
-  args:
-    chdir: '{{ user_home }}'
+  raw: fish /home/cfutro/install --path=/home/cfutro/.local/share/omf --config=/home/cfutro/.config/omf
 
 - name: Install agnoster theme
   shell: omf install agnoster
