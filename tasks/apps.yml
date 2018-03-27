@@ -31,4 +31,5 @@
       - htop
       - keepassxc
       - libselinux-python
+      - redhat-rpm-config
     state: latest
